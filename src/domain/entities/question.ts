@@ -1,5 +1,5 @@
+import { Entity } from '../../core/entities/entity'
 import type { Slug } from './value-object/slug'
-import { Entity } from '@/core/entities/entity'
 
 interface QuestionProps {
   title: string
