@@ -1,12 +1,14 @@
-export class Entity<props> {
-  private _id: string
-  protected props: props
+import { UniqueEntityId } from './unique-entity-id'
+
+export class Entity<Props> {
+  private _id: UniqueEntityId
+  protected props: Props
 
   get id() {
     return this._id
   }
-  constructor(props: props, id?: string) {
+  constructor(props: Props, id?: string) {
     this.props = props
-    this._id = id ?? crypto.randomUUID()
+    this._id = new UniqueEntityId()
   }
 }
