@@ -34,9 +34,11 @@ export class Questions extends Entity<QuestionProps> {
   get content() {
     return this.props.content
   }
+
   get createdAt() {
     return this.props.createdAt
   }
+
   get updatedAt() {
     return this.props.updatedAt
   }
@@ -71,7 +73,7 @@ export class Questions extends Entity<QuestionProps> {
 
   static create(
     props: Optional<QuestionProps, 'createdAt' | 'slug'>,
-    id?: UniqueEntityId
+    id?: UniqueEntityId,
   ) {
     const question = new Questions(
       {
@@ -79,7 +81,7 @@ export class Questions extends Entity<QuestionProps> {
         slug: props.slug ?? Slug.createFromText(props.title),
         createdAt: new Date(),
       },
-      id
+      id,
     )
     return question
   }
