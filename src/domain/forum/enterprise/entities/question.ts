@@ -14,7 +14,7 @@ interface QuestionProps {
   updatedAt?: Date
 }
 
-export class Questions extends Entity<QuestionProps> {
+export class Question extends Entity<QuestionProps> {
   get authorId() {
     return this.props.authorId
   }
@@ -73,15 +73,15 @@ export class Questions extends Entity<QuestionProps> {
 
   static create(
     props: Optional<QuestionProps, 'createdAt' | 'slug'>,
-    id?: UniqueEntityId,
+    id?: UniqueEntityId
   ) {
-    const question = new Questions(
+    const question = new Question(
       {
         ...props,
         slug: props.slug ?? Slug.createFromText(props.title),
         createdAt: new Date(),
       },
-      id,
+      id
     )
     return question
   }
