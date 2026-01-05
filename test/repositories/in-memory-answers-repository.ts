@@ -1,8 +1,14 @@
 import type { AnswersRepository } from '@/domain/forum/application/repositories/answers-repository'
 import type { Answer } from '@/domain/forum/enterprise/entities/answer'
 
-export class InMemoryAnswerRepository implements AnswersRepository {
+export class InMemoryAnswersRepository implements AnswersRepository {
   public items: Answer[] = []
+
+  async save(answer: Answer) {
+    const itemIndex = this.items.findIndex((item) => item.id === answer.id)
+
+    this.items[itemIndex] = answer
+  }
 
   async findById(id: string) {
     const answer = this.items.find((item) => item.id.toString() === id)
