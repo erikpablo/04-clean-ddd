@@ -6,7 +6,7 @@ import {
 import { fakerPT_BR as faker } from '@faker-js/faker'
 
 export function makeQuestion(
-  override: Partial<QuestionProps>,
+  override: Partial<QuestionProps> = {},
   id?: UniqueEntityId
 ) {
   const question = Question.create(
