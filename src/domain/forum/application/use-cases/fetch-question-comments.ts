@@ -1,5 +1,5 @@
 import { QuestionComment } from '../../enterprise/entities/question-comments'
-import type { QuestionCommentRepository } from '../repositories/question-comments-repository'
+import { QuestionCommentRepository } from '../repositories/question-comments-repository'
 
 interface FetchQuestionCommentsUseCaseRequest {
   page: number
